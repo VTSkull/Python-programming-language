@@ -1,0 +1,56 @@
+dat
+var add i 1
+var sub i 2
+var mlt i 3
+var div i 4
+var adl i 46
+var sbl i 48
+var mll i 50
+var dvl i 52
+var gto i 55
+edt
+
+com takes the first number
+var txt s input a number 
+out txt
+uin aaa
+
+com takes the second number
+var txt s input another number 
+out txt
+uin aab
+
+
+var txt s (1)add (2)subtract (3)multiply (4)divide 
+out txt
+uin aad
+
+var txt s the result is 
+
+
+com checks what the user input for their choice
+equ aad add aae
+if- aae adl
+equ aad sub aae
+if- aae sbl
+equ aad mlt aae
+if- aae mll
+equ aad div aae
+if- aae dvl
+
+var txt s invalid choice
+out txt
+end
+
+com do the arithmatics and goes to result line
+add aaa aab aac
+lod gto
+sub aaa aab aac
+lod gto
+mlt aaa aab aac
+lod gto
+div aaa aab aac
+lod gto
+
+out txt
+out aac
