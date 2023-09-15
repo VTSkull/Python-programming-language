@@ -1,4 +1,4 @@
-with open("system.rom", "r") as file:
+with open("main.ppl", "r") as file:
     data = file.read()
     file.close()
 #print(data)
