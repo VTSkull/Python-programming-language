@@ -1,0 +1,209 @@
+"[number]>" indicates instructions that are planned but not yet created. The number indicates how much of a priority the instruction is (1 being most important and 10 being least).
+"#" indicates instructions that may or may not be added
+
+
+//data control instructions
+    var [name] [data type] [value] //Creates variable(3 characters long) with value.
+        Example:
+            var aaa i 10
+        Sets variable "aaa" to integer 10.
+
+    uin [variable] //Waits for user input and saves it to variable when the enter key is pressed.
+        Example:
+            1.uin aaa
+        1.Waits for user input and saves it to variable "aaa".
+
+    out [variable] //Prints variable to console.
+        Example:
+            1.var aaa s Hello, World!
+            2.out aaa
+        1.Sets variable "aaa" to string "Hello, World!".
+        2.Outputs value stored in variable "aaa" (in this case, "Hello, World!").
+
+
+//information processing instructions
+    lod [variable] //Goes to line number indicated by the integer in variable.
+        Example:
+            1.var aaa i 1
+            2.lod aaa
+        1.Sets variable "aaa" to integer 1.
+        2.Goes to line number stored in variable "aaa" (in this case, 1).
+
+    if- [variable 1(boolean)] [variable 2(int)] //If variable is true go to line number indicated by the integer in variable 2.
+        Example:
+            1.var aaa b True
+            2.var aab i 1
+            3.if- aaa aab
+        1.Sets variable "aaa" to boolean value of true.
+        2.Sets variable "aab" to integer 1.
+        3.If boolean stored in variable "aaa" is true, go to line number stored in variable "aab" (in this case, 1).
+
+    eif [variable 1(boolean)] [variable 2(int)] [variable 3(int)] //if variable is true go to line number indicated by the integer in variable 2 else go to line number indicated by the integer in variable 3
+        Example:
+            1.var aaa b True
+            2.var aab i 1
+            3.var aac i 2
+            4.eif aaa aab aac
+        1.Sets variable "aaa" to boolean value of true.
+        2.Sets variable "aab" to integer 1.
+        3.Sets variable "aac" to integer 2.
+        4.If boolean stored in variable "aaa" is true, go to line number stored in variable "aab" (in this case, 1). If the boolean value is false, go to line number stored in variable "aac" (in this case, 2).
+
+//program control instructions
+    end //ends process
+    # sbp [variable] //Creates threaded process from line number indicated by the integer in variable.
+    # run //Run is used to signify the start of the program.
+
+
+//math logic instructions
+    equ [variable 1(int/float)] [variable 2(int/float)] [output variable] //Returns true to the output variable if variable 1 and variable 2 are equal and false if they are not equal
+        Example:
+            1.var aaa i 1
+            2.var aab i 1
+            3.equ aaa aab aac
+        1.Sets variable "aaa" to integer 1.
+        2.Sets variable "aab" to integer 1.
+        3.Returns boolean true to variable "aac" if integer or float in variables "aaa" and "aab" are equal and false if they are not equal.
+
+    neq [variable 1(int/float)] [variable 2(int/float)] [output variable] //Does the same thing as equ but returns false if they are equal and returns true if they are not equal
+        Example:
+            1.var aaa i 1
+            2.var aab i 2
+            3.neq aaa aab aac
+        1.Sets variable "aaa" to integer 1.
+        2.Sets variable "aab" to integer 2.
+        3.Returns boolean true to variable "aac" if integer or float in variables "aaa" and "aab" are not equal and false if they are equal.
+
+    les [variable 1(int/float)] [variable 2(int/float)] [output variable] //Returns true to output variable if variable 1 is less than variable 2 and false if variable 1 is greater than variable 2
+        Example:
+            1.var aaa i 1
+            2.var aab i 2
+            3.les aaa aab aac
+        1.Sets variable "aaa" to integer 1.
+        2.Sets variable "aab" to integer 2.
+        3.Returns boolean true to variable "aac" if integer or float in variable "aaa" is less than integer or float in variable "aab" and false if "aaa" is greater than "aab".
+
+    grt [variable 1(int/float)] [variable 2(int/float)] [output variable] //Returns true to output variable if variable 1 is greater than variable 2 and false if variable 1 is less than variable 2
+        Example:
+            1.var aaa i 1
+            2.var aab i 2
+            3.grt aaa aab aac
+        1.Sets variable "aaa" to integer 2.
+        2.Sets variable "aab" to integer 1.
+        3.Returns boolean true to variable "aac" if integer or float in variable "aaa" is greater than integer or float in variable "aab" and false if "aaa" is less than "aab".    
+
+    leq [variable 1(int/float)] [variable 2(int/float)] [output variable] //Returns true to output variable if variable 1 is less than or equal to variable 2 and false if variable 1 is greater than variable 2
+            Example:
+            1.var aaa i 1
+            2.var aab i 2
+            3.leq aaa aab aac
+        1.Sets variable "aaa" to integer 1.
+        2.Sets variable "aab" to integer 2.
+        3.Returns boolean true to variable "aac" if integer or float in variable "aaa" is less than or equal to integer or float in variable "aab" and false if "aaa" is greater than "aab".
+
+    geq [variable 1(int/float)] [variable 2(int/float)] [output variable] //Returns true to output variable if variable 1 is greater than or equal to variable 2 and false if variable 1 is less than variable 2
+        Example:
+            1.var aaa i 1
+            2.var aab i 2
+            3.les aaa aab aac
+        1.Sets variable "aaa" to integer 1.
+        2.Sets variable "aab" to integer 2.
+        3.Returns boolean true to variable "aac" if integer or float in variable "aaa" is greater than or equal to integer or float in variable "aab" and false if "aaa" is less than "aab".
+
+
+//Data section instructions
+    dat //dat is used to signify the start of a data section. Data sections store data before the program starts and can be put anywhere
+        Example:
+            See example for edt
+
+    edt //edt is used to signify the end of dat section
+        Example:
+            1.dat
+            2.var aaa i 1
+            3.edt
+        1.Signify the start of the data section.
+        2.Sets variable "aaa" to integer 1.
+        3.Signify the end of the data section
+
+
+//math instructions
+    add [variable 1(int/float)] [variable 2(int/float)] [output variable] //Adds variable 1 with variable 2 and returns the output to the output variable.
+        Example:
+            1.var aaa i 1
+            2.var aab i 1
+            3.add aaa aab aac
+        1.Sets variable "aaa" to integer 1.
+        2.Sets variable "aab" to integer 1.
+        3.Sets variable "aac" to integer or float in variable "aaa" added to integer or float in variable "aab".
+
+    sub [variable 1(int/float)] [variable 2(int/float)] [output variable] //Subtracts variable 1 with variable 2 and returns the output to the output variable.
+        Example:
+            1.var aaa i 2
+            2.var aab i 1
+            3.sub aaa aab aac
+        1.Sets variable "aaa" to integer 1.
+        2.Sets variable "aab" to integer 1.
+        3.Sets variable "aac" to integer or float in variable "aaa" subtracted by integer or float in variable "aab".    
+
+    mlt [variable 1(int/float)] [variable 2(int/float)] [output variable] //Multiplies variable 1 with variable 2 and returns the output to the output variable.
+        Example:
+            1.var aaa i 1
+            2.var aab i 1
+            3.mlt aaa aab aac
+        1.Sets variable "aaa" to integer 1.
+        2.Sets variable "aab" to integer 1.
+        3.Sets variable "aac" to integer or float in variable "aaa" multiplied by integer or float in variable "aab".    
+
+    div [variable 1(int/float)] [variable 2(int/float)] [output variable] //Divides variable 1 with variable 2 and returns the output to the output variable.
+        Example:
+            1.var aaa i 1
+            2.var aab i 1
+            3.div aaa aab aac
+        1.Sets variable "aaa" to integer 1.
+        2.Sets variable "aab" to integer 1.
+        3.Sets variable "aac" to integer or float in variable "aaa" divided by integer or float in variable "aab".
+
+
+//bitwise instructions
+    bor [variable 1(boolean)] [variable 2(boolean)] [output variable] //Does bitwise or(if either variable true output true) on variable 1 and variable 2 and returns the result to the output variable.
+        Example:
+            1.var aaa b True
+            2.var aab b False
+            3.bor aaa aab aac
+        1.Sets variable "aaa" to boolean true.
+        2.Sets variable "aaa" to boolean false.
+        3.Returns boolean true to variable "aac" if either boolean in variable "aaa" or "aab" is true. Returns false otherwise.
+
+    and [variable 1(boolean)] [variable 2(boolean)] [output variable] //Does bitwise and(if both variables are true output true) on variable 1 and variable 2 and returns the result to the output variable.
+        Example:
+            1.var aaa b True
+            2.var aab b False
+            3.and aaa aab aac
+        1.Sets variable "aaa" to boolean true.
+        2.Sets variable "aaa" to boolean false.
+        3.Returns boolean true to variable "aac" if both booleans in variable "aaa" and "aab" are true. Returns false otherwise.    
+    
+    1> not [variable(boolean)] [output variable] //Reverses boolean value. (if variable is true, return false to the output variable. if variable is false, return true to the output variable).
+    2> nor [variable 1(boolean)] [variable 2(boolean)] [output variable] //Does bitwise nor.
+
+
+//misc
+    com //Creates a comment that the program skips over.
+        Example:
+            1.com This is a comment and will be skipped over by the program
+        1.Creates a comment. 
+
+
+//notes
+    Bitwise instructions are based on boolean true or false statements.
+
+    Data types: i = integer, s = string, b = boolean, f = float
+        Example: 
+            var aaa i 1
+        Loads integer 1 to variable "aaa".
+
+    Booleans can be any of the following:
+        True, true, 1
+        False, false, 0
+
+    Integers 1 and 0 can be used as booleans if needed.
